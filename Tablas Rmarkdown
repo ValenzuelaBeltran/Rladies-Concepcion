@@ -97,21 +97,21 @@ kable(resumen, booktabs=T, caption="Resumen descriptivo", digits = 2) %>%
   row_spec(0, bold = T)
 ```
 
-##Resultados de un modelo
+-*Resultados de un modelo*
 La salida de resultados de 'R' no es muy amigable para ser presentada directamente:
 ```{r}
 mtautos$transmisionfactor = factor(mtautos$transmision, labels= c("automatica","manual"))
 modelo = lm(millas ~ transmisionfactor + velocidad, data = mtautos)
 summary(modelo)
 ```
-- Presentando el modelo
+- *Presentando el modelo*
 ```{r}
 modelo %>% summary() %>%
   xtable() %>%
   kable()
 ```
 
-- Definiendo formato
+- *Definiendo formato*
 ```{r}
 modelo %>% summary() %>%
   xtable() %>%
